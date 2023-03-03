@@ -1,12 +1,12 @@
 package org.tnsif.framework;
 
 public abstract class BankAcc {
-	//private data members
+	
 	private int accNo;
 	private String accNm;
 	private float accBal;
 	
-	//getter and setter
+	//generate getters and setters
 	public int getAccNo() {
 		return accNo;
 	}
@@ -25,28 +25,23 @@ public abstract class BankAcc {
 	public void setAccBal(float accBal) {
 		this.accBal = accBal;
 	}
-	
-	//parameterize constructor
+	//generate parameterized constructor
 	public BankAcc(int accNo, String accNm, float accBal) {
 		super();
 		this.accNo = accNo;
 		this.accNm = accNm;
 		this.accBal = accBal;
 	}
-	
-	//method
-	abstract public void withdraw(float accBal);
-	public void deposit(float accBal) {
-		System.out.println("Account balance: "+accBal);
-	}
-	
-	//tostring method  obj repres in string
+	//tostring method
 	@Override
 	public String toString() {
-		return "BankAcc [accNo=" + accNo + ", accNm=" + accNm + ", accBal=" + accBal + "]";
+		return String.format("BankAcc [accNo=%s, accNm=%s, accBal=%s]", accNo, accNm, accBal);
 	}
 	
+	public abstract void withdraw(float charges);
+	public void deposite(float charges)
+	{
+		System.out.println(charges);		
+	}
 	
-	
-
 }
